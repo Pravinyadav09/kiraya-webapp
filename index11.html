@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bazaar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+         /* --- Enhanced & Refined CSS --- */
+
+        /* Root Variables */
+        :root {
+            --primary: #007bff; /* Example: Updated primary color */
+            --primary-darker: #0056b3;
+            --secondary: #6c757d; /* Example: Updated secondary color */
+            --secondary-hover: #5a6268;
+            --accent: #ffc107;
+            --accent-hover: #e0a800;
+            --dark: #343a40;
+            --light: #f8f9fa;
+            --text: #495057;
+            --text-light: #6c757d;
+            --border-color: #dee2e6;
+            --white: #ffffff;
+            --danger: #dc3545;
+            --danger-hover: #c82333;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* --- Header Section --- */
+        .header {
+            background: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .navbar a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: var(--primary);
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+         /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .cta-buttons .btn {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .cta-buttons .btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .cta-buttons .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+            margin-left: 1rem;
+        }
+
+        .cta-buttons .btn-primary:hover {
+            background-color: var(--primary-darker);
+            border-color: var(--primary-darker);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            margin-top: 60px;
+            padding: 5rem 1rem;
+            background: var(--white); /* White background */
+            color: var(--text); /* Dark text */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin: 0 auto 2rem;
+            max-width: 650px;
+            color: var(--text-light);
+        }
+
+         .search-form {
+            max-width: 650px;
+            margin: 2rem auto 0;
+            display: flex;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 0.9rem 1.4rem;
+            border: none;
+            font-size: 1rem;
+            background: transparent;
+            color: var(--text);
+            outline: none;
+        }
+
+        .search-form input::placeholder {
+            color: var(--text-light);
+            opacity: 1;
+        }
+
+        .search-form button {
+            padding: 0 1.8rem;
+            background: var(--primary);
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-form button i {
+            font-size: 1.1rem;
+        }
+
+        .search-form button:hover {
+            background: var(--primary-darker);
+        }
+
+        /* --- Image Slider Section --- */
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem 0;
+            background: var(--light); /* Lighter background */
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .slide-track {
+            display: flex;
+            animation: scroll 60s linear infinite;
+        }
+
+        .slider:hover .slide-track {
+            animation-play-state: paused;
+        }
+
+        .slide {
+            width: 240px;
+            height: 240px;
+            margin: 0 0.8rem;
+            flex-shrink: 0;
+            perspective: 1000px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .slide-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .slide:hover .slide-inner {
+            transform: rotateY(180deg);
+        }
+
+        .slide-front,
+        .slide-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .slide-back {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotateY(180deg);
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .slide-back p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-256px * 12));
+            }
+        }
+
+        /* --- Section Heading Style --- */
+        .section-heading {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.6rem;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .gradient-heading {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* --- Product Details Section --- */
+        .kiraya-main {
+            flex: 1;
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .kiraya-product-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .kiraya-product-item {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kiraya-product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .kiraya-product-image-container {
+            height: 200px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .kiraya-product-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .kiraya-product-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .kiraya-product-content {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .kiraya-product-item h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            color: var(--primary);
+        }
+
+        .kiraya-product-item p {
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .kiraya-price {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0.4rem 0 0.8rem;
+        }
+
+        .kiraya-buttons {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: auto;
+        }
+
+        .kiraya-button {
+            padding: 0.5rem 0.9rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            flex: 1;
+        }
+
+        .kiraya-button i {
+            font-size: 0.8rem;
+        }
+
+        .kiraya-buy-btn {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .kiraya-buy-btn:hover {
+            background-color: var(--primary-darker);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
+        }
+
+        .kiraya-delete-btn {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+
+        .kiraya-delete-btn:hover {
+            background-color: var(--danger-hover);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-2px);
+        }
+
+         /* Loading, Empty, No Results States */
+        .kiraya-loading, .kiraya-empty, .no-results {
+            display: flex;
+            flex-direction: column; /* Stack icon and text */
+            justify-content: center;
+            align-items: center;
+            min-height: 250px; /* Ensure it takes some space */
+            grid-column: 1 / -1; /* Span full grid */
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+        }
+
+        .kiraya-spinner {
+            width: 45px;
+            height: 45px;
+            border: 5px solid rgba(0, 47, 52, 0.1); /* Lighter primary */
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem; /* Space below spinner */
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .kiraya-empty i, .no-results i {
+            font-size: 3.5rem; /* Larger icon */
+            margin-bottom: 1rem;
+            color: var(--border-color); /* Lighter icon color */
+        }
+
+        .kiraya-empty h3, .no-results h3 {
+            font-size: 1.4rem; /* Adjusted size */
+            color: var(--text); /* Darker heading */
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .kiraya-empty p, .no-results p {
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 400px; /* Limit width */
+        }
+
+        /* Lightbox */
+        .kiraya-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1050;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 1rem;
+        }
+
+        .kiraya-lightbox.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .kiraya-lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .kiraya-lightbox-img {
+            display: block;
+            max-width: 100%;
+            max-height: calc(90vh - 50px);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .kiraya-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0px;
+            font-size: 2.8rem;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            padding: 0;
+            line-height: 1;
+        }
+
+        .kiraya-close-btn:hover {
+            color: var(--white);
+        }
+
+        /* Toast Notification */
+         .kiraya-toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--primary); /* Default success background */
+            color: var(--white);
+            padding: 1rem 1.8rem; /* Increased padding */
+            border-radius: 8px; /* Match other elements */
+            box-shadow: var(--shadow-md);
+            transform: translateY(120px); /* Start further down */
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28); /* Bouncy effect */
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem; /* Adjusted gap */
+            font-size: 0.95rem; /* Consistent font size */
+        }
+        .kiraya-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .kiraya-toast i {
+            font-size: 1.2em; /* Consistent icon size */
+        }
+         /* Error state for Toast */
+        .kiraya-toast.error {
+            background-color: var(--danger);
+        }
+
+        /* Email/Contact Modal */
+        .kiraya-modal {
+            display: none;
+            position: fixed;
+            z-index: 1040;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.65);
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .kiraya-modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 550px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+             opacity: 0;
+             transform: scale(0.95) translateY(-20px);
+             transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        /* Entrance animation */
+        .kiraya-modal.show .kiraya-modal-content {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .kiraya-close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--text-light);
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .kiraya-close-modal:hover {
+            color: var(--primary);
+        }
+
+        .kiraya-modal h2 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .kiraya-form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .kiraya-form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .kiraya-form-group input,
+        .kiraya-form-group textarea {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--white);
+        }
+
+        .kiraya-form-group input:focus,
+        .kiraya-form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+        }
+
+        .kiraya-form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Submit button in modal */
+         #emailForm .kiraya-button {
+            width: 100%;
+            padding: 0.8rem 1.5rem; /* Larger padding */
+            font-size: 1rem; /* Larger font */
+            margin-top: 1rem; /* Space above button */
+        }
+         #emailForm .kiraya-button:hover {
+             background-color: var(--primary-darker);
+             transform: translateY(-2px);
+             box-shadow: var(--shadow);
+         }
+
+
+        /* --- Gallery Section --- */
+        .gallery-section {
+            padding: 4rem 1rem;
+            background: var(--white);
+        }
+
+        .gallery-heading {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 0.6rem;
+        }
+
+        .gallery-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery .row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .gallery .image-box {
+            width: 280px;
+            height: 280px;
+            perspective: 1000px;
+            flex-shrink: 0;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery .image-inner {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery .image-box:hover .image-inner {
+            transform: rotateY(180deg);
+        }
+
+        .gallery .image-front,
+        .gallery .image-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery .image-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery .image-back {
+            background: var(--primary);
+            color: var(--white);
+            transform: rotateY(180deg);
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .gallery .image-back p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* --- Features Grid Section --- */
+        .features {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- Services Section --- */
+        .services {
+            padding: 4rem 1rem;
+            background: var(--light);
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .service-number {
+            font-size: 1.4rem;
+            font-weight: 700;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+         /* --- Testimonial Section --- */
+        .testimonial-section {
+            padding: 4rem 1rem;
+            background: var(--light);
+        }
+
+        .testimonial-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+                }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-card img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            margin-bottom: 1.2rem;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-style: italic;
+            position: relative;
+            padding: 0 0.8rem;
+        }
+
+        /* Add quote marks */
+        .testimonial-card p::before {
+            content: '\f10d'; /* FontAwesome quote-left */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            top: -0.5rem; left: -0.5rem;
+            font-size: 1.2rem;
+            color: var(--primary);
+            opacity: 0.4;
+        }
+
+        .testimonial-card p::after {
+            content: '\f10e'; /* FontAwesome quote-right */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            bottom: -0.5rem; right: -0.5rem;
+            font-size: 1.2rem;
+            color: var(--primary);
+            opacity: 0.4;
+        }
+
+        .testimonial-card h4 { /* User name */
+            font-size: 1rem; /* Adjusted size */
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: auto; /* Push name to bottom if needed */
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            padding: 4rem 1rem;
+            background: var(--light);
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .about-description {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-description:last-of-type {
+            margin-bottom: 2.5rem;
+        }
+
+        .about-description b {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* About Features Grid */
+        .about-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .about-feature-card {
+            background: var(--light);
+            padding: 1.8rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .about-feature-icon {
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .about-feature-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* About Mission Section */
+        .about-mission-section {
+            margin-top: 2.5rem;
+            text-align: center;
+            padding: 2rem;
+            background-color: #e9ecef;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .about-mission-section h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .about-mission-section h3 i {
+            color: var(--primary);
+        }
+
+        .about-mission-section p {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- Map Section --- */
+        .map-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .map-container h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+        }
+
+        .map-container p.location {
+            font-size: 1rem;
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+
+        .map-container p.address {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Contact Info below map */
+        .contact-info {
+            margin: 1.8rem 0;
+            padding: 1.4rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .contact-info p {
+            margin: 0;
+            color: var(--text);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .contact-info p i {
+            color: var(--primary);
+            width: 16px;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .contact-info strong {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Map Footer */
+        .map-footer {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            padding-top: 1.4rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .map-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .map-footer a:hover {
+            text-decoration: underline;
+            color: var(--primary-darker);
+        }
+
+        /* --- Contact Section (Cards) --- */
+        .contact {
+            padding: 4rem 1rem;
+            background: var(--light);
+        }
+
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--white);
+            color: var(--text);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card i {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            color: var(--text-light);
+        }
+
+        .contact-card p[style*="font-size: 0.9rem"] {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.4rem;
+        }
+
+        /* --- Footer Section --- */
+        .footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 1rem 1.5rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .footer-section {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.2rem;
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            opacity: 0.9;
+            font-size: 0.85rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--white);
+            text-decoration: underline;
+            text-decoration-color: var(--primary);
+        }
+
+        .footer-section ul li i.fas {
+            color: var(--primary);
+            width: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .social-icons a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: scale(1.1) translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom i.fas {
+            color: var(--danger);
+            margin: 0 3px;
+        }
+
+        /* --- Responsive Design --- */
+
+        /* LG Breakpoint */
+        @media (max-width: 992px) {
+            .navbar ul { gap: 1.2rem; }
+            .cta-buttons { display: none; }
+            .kiraya-product-details { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+            .gallery .image-box { width: 260px; height: 260px; }
+            .footer-container { gap: 1.8rem; }
+            .testimonial-carousel { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+            .about-features-grid, .contact-grid, .service-grid, .features {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            }
+        }
+
+        /* MD Breakpoint */
+        @media (max-width: 768px) {
+             /* Simple Mobile Menu Placeholder (consider JS for toggle) */
+             /* .navbar { display: none; } */
+             /* .mobile-menu-icon { display: block; } */
+
+            .header { padding: 0.8rem 0; }
+            .header-container {
+                padding: 0 1rem;
+                /* Keep flex-row, maybe add mobile menu icon */
+            }
+            /* Hide desktop nav items or adapt */
+             .navbar { display: none; } /* Hide nav, needs mobile menu logic */
+
+             /* Adjust Hero */
+            .hero { padding: 3.5rem 1rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 0.95rem; max-width: 90%; margin-bottom: 1.8rem;}
+            .search-form {
+                flex-direction: column;
+                border-radius: 8px; /* Keep consistent radius */
+                max-width: 90%;
+                box-shadow: var(--shadow-sm);
+            }
+             .search-form input {
+                 border-radius: 8px 8px 0 0; /* Top corners */
+                 text-align: center;
+                 padding: 0.8rem 1rem;
+                 border-bottom: 1px solid var(--border-color); /* Separator */
+            }
+            .search-form button {
+                border-radius: 0 0 8px 8px; /* Bottom corners */
+                width: 100%;
+                padding: 0.8rem 1rem;
+                 justify-content: center; /* Center button content */
+            }
+
+            /* Adjust Slider */
+            .slide { width: 220px; height: 220px; margin: 0 0.7rem;}
+            .slide-back p { font-size: 1.1rem; }
+            @keyframes scroll { /* Recalculate animation */
+                0% { transform: translateX(0); }
+                100% { transform: translateX(calc(-(227px) * 12)); } /* Adjust calc */
+            }
+
+             /* Adjust Product Grid */
+             .kiraya-product-details { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.2rem; }
+             .kiraya-buttons { flex-direction: column; gap: 0.4rem; }
+
+             /* Adjust Gallery */
+            .gallery .row { gap: 1.2rem; margin-bottom: 1.2rem; }
+            .gallery .image-box { width: 230px; height: 230px; }
+
+             /* Adjust Cards Spacing */
+            .features, .services, .testimonial-section, .about-section, .contact, .map-container { padding: 2.5rem 1rem; }
+            .feature-card, .service-card, .contact-card, .testimonial-card, .about-feature-card, .about-mission-section { padding: 1.8rem; }
+            .testimonial-carousel { gap: 1.2rem; }
+
+             /* Adjust Headings */
+             .section-heading, .map-container h1, .about-heading { font-size: 1.6rem; margin-bottom: 1.8rem; }
+
+             /* Map */
+             #map { height: 320px; }
+             .contact-info { grid-template-columns: 1fr; } /* Stack contact info */
+
+             /* Footer */
+             .footer { padding: 2.8rem 1rem 1.3rem; margin-top: 2.8rem;}
+             .footer-container {
+                 grid-template-columns: 1fr;
+                 text-align: center;
+             }
+             .footer-section h3 {
+                 display: block; /* Center heading */
+                 border-bottom: none;
+                 padding-bottom: 0;
+                 margin-bottom: 0.9rem;
+             }
+             .footer-section h3::after { /* Add center separator */
+                 content: ''; display: block; width: 40px; height: 2px;
+                 background: var(--primary); margin: 0.4rem auto 0.8rem;
+             }
+             .footer-section ul { padding: 0; }
+             .footer-section ul li a { justify-content: center; } /* Center links */
+             .social-icons { justify-content: center; }
+
+             /* Modal */
+             .kiraya-modal-content { width: 95%; margin: 8% auto; padding: 1.4rem; }
+        }
+
+        /* SM Breakpoint */
+        @media (max-width: 480px) {
+             body { line-height: 1.5; } /* Slightly tighter line height */
+             .hero h1 { font-size: 1.8rem; }
+             .hero p { font-size: 0.9rem; }
+
+            .slide { width: 190px; height: 190px; }
+             @keyframes scroll { /* Recalculate animation */
+                 0% { transform: translateX(0); }
+                 100% { transform: translateX(calc(-(196px) * 12)); }
+             }
+
+             .kiraya-product-details { grid-template-columns: 1fr; /* Single column */ gap: 1rem; }
+             .kiraya-product-item { border-radius: 8px; } /* Slightly smaller radius */
+             .kiraya-product-content { padding: 1rem; }
+             .kiraya-price { font-size: 1.1rem; }
+             .kiraya-button { font-size: 0.75rem; padding: 0.45rem 0.7rem; }
+
+            .gallery .image-box { width: 230px; height: 230px; } /* Let gallery items be larger on small screens */
+
+             .features, .services, .testimonial-section, .about-section, .contact, .map-container { padding: 2.2rem 1rem; }
+            .feature-card, .service-card, .contact-card, .testimonial-card, .about-feature-card, .about-mission-section { padding: 1.5rem; border-radius: 10px;}
+             .feature-icon, .about-feature-icon { font-size: 2rem; }
+             .feature-card h3, .service-card h3, .contact-card h3, .testimonial-card h4, .about-feature-card h3 { font-size: 1rem; }
+             .section-heading, .map-container h1, .about-heading { font-size: 1.5rem; }
+
+             .testimonial-card img { width: 65px; height: 65px; }
+             .testimonial-card p { font-size: 0.85rem; }
+
+             .about-container { padding: 1.4rem; }
+
+             #map { height: 280px; }
+
+             .footer-section { margin-bottom: 0.9rem; }
+             .footer-container { gap: 1.2rem; }
+             .social-icons { gap: 0.7rem; }
+             .social-icons a { font-size: 1.1rem; }
+             .footer-bottom { font-size: 0.75rem; padding-top: 1.2rem; margin-top: 1.4rem;}
+
+             /* Modal on small screens */
+             .kiraya-modal-content { padding: 1.1rem; }
+             .kiraya-modal h2 { font-size: 1.2rem; margin-bottom: 1.1rem;}
+             .kiraya-form-group input, .kiraya-form-group textarea { padding: 0.6rem 0.8rem; font-size: 0.85rem;}
+
+             /* Toast positioning */
+             .kiraya-toast { bottom: 15px; right: 15px; left: 15px; width: auto; /* Full width */ justify-content: center;}
+        }
+
+        /* --- Body Class for Modal Open --- */
+        body.modal-open {
+            overflow: hidden; /* Prevent background scroll when modal/lightbox is open */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#">My<span>Bazaar</span></a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+
+                </ul>
+            </nav>
+            <div class="cta-buttons">
+                <!-- Add Product might be better suited in a user dashboard -->
+                <!-- <a href="#" class="btn">Add Product</a> -->
+                <a href="addproduct.html" class="btn btn-primary"> Add Product</a> <!-- Link to products section -->
+
+            </div>
+             <!-- Add a placeholder for mobile menu icon if needed -->
+             <!-- <button class="mobile-menu-icon" aria-label="Open Menu"><i class="fas fa-bars"></i></button> -->
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container container"> <!-- Added container class -->
+            <h1>Search Your Perfect Product</h1>
+            <p>Discover the best properties, items, and services tailored to your needs on India's trusted platform.</p>
+            <form class="search-form" onsubmit="handleSearch(event)">
+                <input type="text" id="searchInput" placeholder="Search for cars, homes, electronics, gear...">
+                <button type="submit"><i class="fas fa-search"></i> Search</button>
+            </form>
+        </div>
+    </section>
+
+   <!-- Product Details Section -->
+    <main class="kiraya-main container" id="productDetailsContainer"> <!-- Added ID for potential linking -->
+        <h2 class="section-heading">Featured Products</h2>
+        <div id="productDetails" class="kiraya-product-details">
+            <!-- Loading State -->
+            <div class="kiraya-loading">
+                <div class="kiraya-spinner"></div>
+                <p>Loading Products...</p>
+            </div>
+            <!-- Products will be loaded here by JavaScript -->
+            <!-- No Results state will be added dynamically by JS if needed -->
+            <!-- Empty state will be added dynamically by JS if needed -->
+        </div>
+    </main>
+
+     <!-- Lightbox Structure -->
+    <div id="lightbox" class="kiraya-lightbox">
+        <div class="kiraya-lightbox-content">
+            <button class="kiraya-close-btn" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+            <img class="kiraya-lightbox-img" src="" alt="Enlarged Product Image">
+        </div>
+    </div>
+
+     <!-- Email/Contact Modal Structure -->
+    <div id="emailModal" class="kiraya-modal">
+        <div class="kiraya-modal-content">
+            <button class="kiraya-close-modal" onclick="closeModalFunc()" aria-label="Close modal">&times;</button>
+            <h2 id="modalTitle">Contact Form</h2>
+            <form id="emailForm">
+                <input type="hidden" id="actionType">
+                <input type="hidden" id="productId">
+                <input type="hidden" id="productNameInput">
+                <input type="hidden" id="productPriceInput">
+
+                <div class="kiraya-form-group">
+                    <label for="userEmail">Your Email:</label>
+                    <input type="email" id="userEmail" required placeholder="e.g., yourname@example.com">
+                </div>
+
+                <div class="kiraya-form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" rows="5" required placeholder="Enter your message (min. 10 characters)"></textarea>
+                </div>
+
+                <button type="submit" class="kiraya-button kiraya-buy-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+     <!-- Toast Notification Structure -->
+    <div id="toast" class="kiraya-toast">
+        <i id="toast-icon" class="fas fa-check-circle"></i> <!-- Added ID for icon -->
+        <span id="toast-message">Action completed successfully</span>
+    </div>
+
+    <!-- Features Grid Section -->
+    <section class="features container">
+        <!-- No heading needed if it's standalone features -->
+        <div class="feature-card">
+            <i class="feature-icon fas fa-shield-alt"></i>
+            <h3>Secure Transactions</h3>
+            <p>End-to-end encryption and secure payment system for peace of mind.</p>
+        </div>
+        <div class="feature-card">
+            <i class="feature-icon fas fa-rupee-sign"></i>
+            <h3>Affordable Rates</h3>
+            <p>Flexible rental plans available - daily, weekly, or monthly options.</p>
+        </div>
+        <div class="feature-card">
+            <i class="feature-icon fas fa-headset"></i>
+            <h3>24×7 Support</h3>
+            <p>Our dedicated customer support team is always here to help you.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+         <div class="container"> <!-- Wrap content in container -->
+            <h2 class="section-heading">Our Services</h2> <!-- White heading for dark background -->
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-number">1</div>
+                    <h3>Wide Range</h3>
+                    <p>From everyday gadgets to high-end professional equipment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">2</div>
+                    <h3>Flexible Rentals</h3>
+                    <p>Conveniently rent items by the hour, day, week, or month.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">3</div>
+                    <h3>Easy Process</h3>
+                    <p>Find, and manage your rentals easily with one click.</p>
+                </div>
+            </div>
+         </div>
+    </section>
+
+     <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <h2 class="section-heading">What Our Users Say</h2>
+        <div class="testimonial-carousel container">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <img src="https://img.freepik.com/free-photo/medium-shot-smiley-man-posing_23-2149915892.jpg?semt=ais_hybrid" alt="User Aarav Sharma" loading="lazy">
+                <p>"Great platform! Found exactly what I needed for my project quickly and easily. Smooth process!"</p>
+                <h4>- Aarav Sharma</h4>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <img src="https://media.istockphoto.com/id/629515714/photo/that-was-a-good-one.jpg?s=612x612&w=0&k=20&c=uQ0JR3xg2dlttHSqVoNUAj68So6bjGGHV-fW4D43v-0=" alt="User Priya Singh" loading="lazy">
+                <p>"Amazing experience renting a camera. The quality was superb and the owner was very helpful. Highly recommended!"</p>
+                <h4>- Priya Singh</h4>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <img src="https://www.stockvault.net/data/2020/12/13/281611/preview16.jpg" alt="User Rohan Mehta" loading="lazy">
+                <p>"Very user-friendly interface and efficient communication system. Made renting out my drone hassle-free."</p>
+                <h4>- Rohan Mehta</h4>
+            </div>
+             <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+                <img src="https://www.shutterstock.com/image-photo/serious-indian-guy-casual-blue-260nw-2429711541.jpg" alt="User Ananya Reddy" loading="lazy">
+                <p>"The best rental service I've used in India. Secure payments and verified users give confidence."</p>
+                <h4>- Ananya Reddy</h4>
+            </div>
+            <!-- Testimonial 5 -->
+            <div class="testimonial-card">
+                <img src="https://i.pinimg.com/736x/1a/aa/2f/1aaa2fc9e987bd4e26d4a786549f0f22.jpg" alt="User Vikram Kumar" loading="lazy">
+                <p>"Affordable and reliable for short-term needs. Saved me money on buying equipment I rarely use. Loved it!"</p>
+                <h4>- Vikram Kumar</h4>
+            </div>
+            <!-- Testimonial 6 -->
+            <div class="testimonial-card">
+                <img src="https://photoskart.com/wp-content/uploads/2020/11/portrait-of-a-beautiful-indian-girl-stock-image-scaled.jpg" alt="User Isha Patel" loading="lazy">
+                <p>"Excellent customer support! They resolved my query promptly and professionally. Very impressed."</p>
+                <h4>- Isha Patel</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container container"> <!-- Use container class -->
+            <h2 class="section-heading">About My Bazaar</h2> <!-- Use gradient variant -->
+            <p class="about-description">
+                MyBazaar is India's leading online platform designed to simplify the process ofleasing items. Whether you have unused belongings gathering dust or need something for a short period, MyBazaar connects owners and renters seamlessly. Our mission is to foster a sustainable sharing economy, making access to goods more affordable and environmentally friendly.
+            </p>
+            <p class="about-description">
+                On MyBazzar, you can easily list or find items across diverse categories like <b>Electronics, Furniture, Vehicles, Homes, Cameras, Event Supplies</b>, and much more.
+            </p>
+
+            <!-- Features Section -->
+            <div class="about-features-grid">
+                <div class="about-feature-card">
+                    <i class="fas fa-list-alt about-feature-icon"></i>
+                    <h3>Easy Listing</h3>
+                    <p>List your items for rent quickly with our intuitive interface and clear guidelines.</p>
+                </div>
+                <div class="about-feature-card">
+                    <i class="fas fa-shield-alt about-feature-icon"></i>
+                    <h3>Safe & Reliable</h3>
+                    <p>Benefit from secure transactions, user verification, and a trusted community platform.</p>
+                </div>
+             
+                 <div class="about-feature-card">
+                    <i class="fas fa-boxes about-feature-icon"></i>
+                    <h3>Wide Categories</h3>
+                    <p>Explore a vast range of items, from small household goods to vehicles and properties.</p>
+                </div>
+            </div>
+
+            <!-- Mission Section -->
+            <div class="about-mission-section">
+                <h3><i class="fas fa-rocket"></i> Our Mission</h3>
+                <p>
+                    To empower individuals and businesses across India by promoting a robust  ecosystem. We aim to make accessibility affordable, reduce waste, and build a community based on trust and shared resources. PickUp strives to be the go-to platform for all rental needs, contributing to a smarter, more sustainable future.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-container container">
+        <h1>Our Location</h1>
+        <p class="location">MyBazaar Office</p>
+        <p class="address">Vijay Nagar,<br>Indore, Madhya Pradesh 452012, India</p>
+
+        <div id="map"></div> <!-- Map will be initialized here -->
+
+        <div class="contact-info">
+            <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon - Sat, 10:00 AM - 7:00 PM</p>
+            <p><i class="fas fa-phone"></i> <strong>Call:</strong> +919981213586 </p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong>janviy296@gmail.com</p>
+        </div>
+
+        <div class="map-footer">
+            <p>© <span id="currentYear"></span> MyBazaar. All rights reserved. | <a href="Aboutus.html">Privacy Policy</a> | <a href="Aboutus.html">Terms of Service</a></p>
+        </div>
+    </section>
+
+    <!-- Contact Section (Cards) -->
+     <section class="contact">
+         <div class="container">
+            <h2 class="section-heading">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>ADDRESS</h3>
+                    <p>Vijay Nagar,<br>Indore, MP 452012</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>CALL US</h3>
+                    <p>+919981213586 </p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>EMAIL US</h3>
+                    <p>janviy296@gmail.com</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">(Support & Inquiries)</p>
+                </div>
+            </div>
+         </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-section">
+                <h3>About MyBazaar</h3>
+                <p>India's most trusted rental platform, connecting owners and renters for a seamless sharing experience. Rent anything, anytime, anywhere.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index11.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="properties.html"><i class="fas fa-building"></i> Properties</a></li>
+                    <li><a href="service.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                    <li><a href="Aboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                 <ul>
+                    <li><a href="#map"><i class="fas fa-map-marker-alt"></i> Vijay Nagar, Indore, MP 452012</a></li> <!-- Make address linkable -->
+                    <li><a href="tel:+919981213586"><i class="fas fa-phone"></i> +919981213586 </a></li> <!-- Make phone linkable -->
+                    <li><a href="mailto:janviy296@gmail.com"><i class="fas fa-envelope"></i> janviy296@gmail.com</a></a></li> <!-- Make email linkable -->
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                 <p>Stay connected on social media:</p>
+                <div class="social-icons">
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="currentYearFooter"></span> My Application. Designed & Developed with <i class="fas fa-heart"></i>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Section -->
+    <script>
+        // --- Search Function ---
+        function handleSearch(event) {
+            event.preventDefault();
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm !== '') {
+                 // Instead of redirecting, we'll filter products on the current page
+                 searchProducts(searchTerm);
+                 showToast(`Filtering products for "${searchTerm}"...`);
+                 // Optional: scroll to product section
+                 // document.getElementById('productDetailsContainer')?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                 showToast('Please enter a search term.', 'error');
+                 // Clear filter if search is empty
+                 searchProducts(''); // Show all products
+            }
+        }
+
+        // --- Product Display, Modal, Lightbox, Toast Logic ---
+        // DOM Elements (Ensure they exist before accessing methods)
+        const productDetails = document.getElementById('productDetails');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.querySelector('.kiraya-lightbox-img');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toast-message');
+        const toastIcon = document.getElementById('toast-icon');
+        const emailModal = document.getElementById('emailModal');
+        const emailForm = document.getElementById('emailForm');
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            if (!toast || !toastMessage || !toastIcon) return; // Guard clause
+
+            toastMessage.textContent = message;
+            if (type === 'success') {
+                toastIcon.className = 'fas fa-check-circle';
+                toast.classList.remove('error'); // Ensure error class is removed
+                 toast.style.backgroundColor = 'var(--primary)'; /* Theme success */
+            } else { // Assuming 'error'
+                toastIcon.className = 'fas fa-exclamation-triangle';
+                toast.classList.add('error'); // Add error class for styling
+                 toast.style.backgroundColor = 'var(--danger)'; /* Theme danger */
+            }
+
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500); // Keep visible slightly longer
+        }
+
+        // --- Product Filtering / Searching ---
+        let allProductsData = []; // Store fetched products for filtering
+
+        function searchProducts(searchTerm = '') {
+            if (!productDetails) return;
+
+             const term = searchTerm.toLowerCase();
+             let visibleProductCount = 0;
+
+             // Ensure product items are selected correctly (they might be added dynamically)
+             const productItems = productDetails.querySelectorAll('.kiraya-product-item');
+
+             // Handle the loading state
+             const loadingDiv = productDetails.querySelector('.kiraya-loading');
+             if (loadingDiv) {
+                 console.log("Still loading, search deferred.");
+                 return; // Don't filter while loading
+             }
+
+             // Remove previous "No Results" message if it exists
+             const existingNoResults = productDetails.querySelector('.no-results');
+             if (existingNoResults) {
+                 existingNoResults.remove();
+             }
+
+             productItems.forEach(item => {
+                 const productName = item.querySelector('h2')?.textContent.toLowerCase() || '';
+                 const productDesc = item.querySelector('p:not(.kiraya-price)')?.textContent.toLowerCase() || ''; // Get description paragraph
+
+                 if (!term || productName.includes(term) || productDesc.includes(term)) {
+                     item.style.display = 'flex'; // Show matching items
+                     visibleProductCount++;
+                 } else {
+                     item.style.display = 'none'; // Hide non-matching items
+                 }
+             });
+
+             // Show "No Results" message if no items are visible and a search term was entered
+             if (visibleProductCount === 0 && term) {
+                 const noResultsDiv = document.createElement('div');
+                 noResultsDiv.className = 'no-results'; // Use the styled class
+                 noResultsDiv.innerHTML = `
+                     <i class="fas fa-search"></i> <!-- Search icon -->
+                     <h3>No Products Found</h3>
+                     <p>Sorry, no products match your search for "${searchTerm}".</p>
+                 `;
+                 productDetails.appendChild(noResultsDiv); // Append message
+             }
+
+              // Handle the initial "No Products Available" state
+              const emptyDiv = productDetails.querySelector('.kiraya-empty');
+              if (emptyDiv) {
+                  emptyDiv.style.display = (productItems.length === 0 && !loadingDiv && !existingNoResults) ? 'flex' : 'none';
+              }
+        }
+
+        // --- Fetch and display products ---
+        function displayProducts(products) {
+             if (!productDetails) return;
+             productDetails.innerHTML = ''; // Clear previous content (including loading/error)
+
+             if (products && products.length > 0) {
+                 products.forEach((product) => {
+                      const productElement = document.createElement('div');
+                      productElement.className = 'kiraya-product-item';
+                      productElement.innerHTML = `
+                         <div class="kiraya-product-image-container" onclick="openLightbox('${product.image}')">
+                             <img src="${product.image}" alt="${product.name}" loading="lazy">
+                         </div>
+                         <div class="kiraya-product-content">
+                             <h2>${product.name}</h2>
+                             <p>${product.description || 'No description available.'}</p>
+                             <p class="kiraya-price">₹${product.price ? product.price.toLocaleString('en-IN') : 'N/A'}</p>
+                             <div class="kiraya-buttons">
+                                 <button class="kiraya-button kiraya-buy-btn"
+                                         onclick="handleBuy('${product.name}', ${product.price || 0})">
+                                     <i class="fas fa-shopping-cart"></i> Buy Now
+                                 </button>
+                                
+                             </div>
+                         </div>
+                     `;
+                      productDetails.appendChild(productElement);
+                  });
+             } else {
+                 // Display no products available message
+                 productDetails.innerHTML = `
+                     <div class="kiraya-empty">
+                         <i class="fas fa-box-open"></i>
+                         <h3>No Products Available</h3>
+                         <p>There are currently no products listed. Check back later!</p>
+                     </div>
+                 `;
+             }
+         }
+
+         function loadProducts() {
+            if (!productDetails) return;
+            // Show loading indicator
+            productDetails.innerHTML = `
+                <div class="kiraya-loading">
+                    <div class="kiraya-spinner"></div>
+                    <p>Loading Products...</p>
+                </div>
+            `;
+
+            fetch('http://localhost:8080/api/products')
+                .then((response) => {
+                    if (!response.ok) {
+                        return response.text().then(text => {
+                            throw new Error(`Network error (${response.status}): ${text}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then((products) => {
+                    allProductsData = products; // Store data for filtering
+                    displayProducts(allProductsData); // Display initial products
+                })
+                .catch((error) => {
+                    console.error('Error fetching products:', error);
+                    productDetails.innerHTML = `
+                        <div class="kiraya-empty">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Error Loading Products</h3>
+                            <p>Could not fetch products. Please check the server connection or try again later.<br><small>(${error.message})</small></p>
+                        </div>
+                    `;
+                    showToast(`Failed to load products: ${error.message}`, 'error');
+                });
+        }
+
+        // --- Modal functions ---
+        function openModal(action, productId, productName, productPrice) {
+             if (!emailModal || !emailForm) return;
+
+            // Set hidden input values
+            emailForm.querySelector('#actionType').value = action;
+            emailForm.querySelector('#productId').value = productId || '';
+            emailForm.querySelector('#productNameInput').value = productName;
+            emailForm.querySelector('#productPriceInput').value = productPrice || '';
+
+            // Update modal title
+            const modalTitle = emailModal.querySelector('#modalTitle');
+            modalTitle.textContent = action === 'buy'
+                ? `Purchase Inquiry: ${productName}`
+                : `Deletion Request: ${productName}`;
+
+            // Display modal with animation
+            emailModal.style.display = 'block';
+            setTimeout(() => { // Allow display block to register before adding class
+                 emailModal.classList.add('show');
+             }, 10); // Small delay
+
+            document.body.classList.add('modal-open'); // Prevent body scroll
+            emailForm.querySelector('#userEmail').focus(); // Focus on email field
+        }
+
+        function closeModalFunc() {
+             if (!emailModal) return;
+            emailModal.classList.remove('show'); // Trigger exit animation
+
+             // Wait for animation to finish before hiding
+             setTimeout(() => {
+                 emailModal.style.display = 'none';
+                 document.body.classList.remove('modal-open');
+                 emailForm?.reset(); // Reset form if it exists
+             }, 300); // Match CSS transition duration
+        }
+
+        // --- Button Handlers ---
+        function handleBuy(productName, productPrice) {
+            openModal('buy', null, productName, productPrice);
+        }
+
+        function handleDelete(productId, productName) {
+             // Optional Confirmation Dialog
+             if (confirm(`Are you sure you want to submit a deletion request for "${productName}"? This will open your email client.`)) {
+                 openModal('delete', productId, productName);
+             }
+        }
+
+        // --- Form Submission Handler ---
+        if (emailForm) {
+            emailForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const action = emailForm.querySelector('#actionType').value;
+                const userEmail = emailForm.querySelector('#userEmail').value;
+                const message = emailForm.querySelector('#message').value;
+                const productName = emailForm.querySelector('#productNameInput').value;
+                const productId = emailForm.querySelector('#productId').value;
+                const productPrice = emailForm.querySelector('#productPriceInput').value;
+
+                // Validation
+                if (!userEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
+                    showToast('Please enter a valid email address.', 'error'); return;
+                }
+                if (!message || message.trim().length < 10) {
+                    showToast('Please enter a message (at least 10 characters).', 'error'); return;
+                }
+
+                let subject, body;
+                const recipientEmail = "janviy296@gmail.com";
+
+                if (action === 'buy') {
+                    subject = `My Bazaar Purchase Inquiry: ${productName}`;
+                    body = `Hello MyBazaar Team,\n\nI am interested in purchasing "${productName}" (Price: ₹${productPrice ? parseFloat(productPrice).toLocaleString('en-IN') : 'N/A'}).\n\nMy Message:\n${message}\n\nPlease contact me at: ${userEmail}\n\nThank you.`;
+                } else { // delete
+                    subject = `MyBazaar Deletion Request: ${productName}`;
+                    body = `Hello My Bazaar Team,\n\nPlease review this request to delete the product listing:\nProduct ID: ${productId}\nProduct Name: ${productName}\n\nReason/Message:\n${message}\n\nMy contact email: ${userEmail}\n\nThank you.`;
+                }
+
+                const mailtoLink = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                // Open mail client
+                window.location.href = mailtoLink;
+
+                // Provide feedback
+                showToast(`Your ${action} request for "${productName}" is ready to send via email.`);
+                closeModalFunc();
+            });
+        }
+
+        // --- Lightbox functions ---
+        function openLightbox(imageUrl) {
+             if (!lightbox || !lightboxImg || !imageUrl) return;
+            lightboxImg.src = imageUrl;
+            lightbox.classList.add('show');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeLightbox() {
+             if (!lightbox || !lightboxImg) return;
+            lightbox.classList.remove('show');
+            document.body.classList.remove('modal-open');
+             // Optional: Clear image src after fade out
+             setTimeout(() => { lightboxImg.src = ''; }, 300);
+        }
+
+        // --- Event Listeners ---
+        // Close lightbox/modal with background click
+        window.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+            if (e.target === emailModal) closeModalFunc();
+        });
+
+        // Close lightbox/modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (lightbox?.classList.contains('show')) closeLightbox();
+                if (emailModal?.style.display === 'block') closeModalFunc(); // Check display style before removing class
+            }
+        });
+
+        // Add event listener for the hero search input (optional: search on input change)
+         const heroSearchInput = document.getElementById('searchInput');
+         if (heroSearchInput) {
+             // Trigger search on Enter key in hero search
+             heroSearchInput.addEventListener('keypress', function(event) {
+                 if (event.key === 'Enter') {
+                     handleSearch(event);
+                 }
+             });
+             // Optional: Trigger live search filtering as user types (can be performance intensive)
+             // heroSearchInput.addEventListener('input', function(event) {
+             //    searchProducts(event.target.value);
+             // });
+         }
+
+         // Set current year in footers
+         document.getElementById('currentYear').textContent = new Date().getFullYear();
+         document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+
+        // --- Google Map Initialization ---
+        function initMap() {
+            const companyLocation = { lat: 22.6985, lng: 75.8360 }; // Refined coordinates
+
+            // Map Style (Example: Subtle Grayscale) - You can customize heavily here
+            const mapStyles = [ { "featureType": "all", "elementType": "geometry.fill", "stylers": [ { "weight": "2.00" } ] }, { "featureType": "all", "elementType": "geometry.stroke", "stylers": [ { "color": "#9c9c9c" } ] }, { "featureType": "all", "elementType": "labels.text", "stylers": [ { "visibility": "on" } ] }, { "featureType": "landscape", "elementType": "all", "stylers": [ { "color": "#f2f2f2" } ] }, { "featureType": "landscape", "elementType": "geometry.fill", "stylers": [ { "color": "#ffffff" } ] }, { "featureType": "landscape.man_made", "elementType": "geometry.fill", "stylers": [ { "color": "#ffffff" } ] }, { "featureType": "poi", "elementType": "all", "stylers": [ { "visibility": "off" } ] }, { "featureType": "road", "elementType": "all", "stylers": [ { "saturation": -100 }, { "lightness": 45 } ] }, { "featureType": "road", "elementType": "geometry.fill", "stylers": [ { "color": "#eeeeee" } ] }, { "featureType": "road", "elementType": "labels.text.fill", "stylers": [ { "color": "#7b7b7b" } ] }, { "featureType": "road", "elementType": "labels.text.stroke", "stylers": [ { "color": "#ffffff" } ] }, { "featureType": "road.highway", "elementType": "all", "stylers": [ { "visibility": "simplified" } ] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [ { "visibility": "off" } ] }, { "featureType": "transit", "elementType": "all", "stylers": [ { "visibility": "off" } ] }, { "featureType": "water", "elementType": "all", "stylers": [ { "color": "#cacaca" }, { "visibility": "on" } ] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [ { "color": "#cacaca" } ] }, { "featureType": "water", "elementType": "labels.text.fill", "stylers": [ { "color": "#9e9e9e" } ] } ];
+
+            try {
+                 const mapElement = document.getElementById("map");
+                 if (!mapElement) {
+                     console.error("Map element not found");
+                     return;
+                 }
+
+                const map = new google.maps.Map(mapElement, {
+                    zoom: 16,
+                    center: companyLocation,
+                    // mapId: 'YOUR_CUSTOM_MAP_ID' // Use if you have Cloud-based styling
+                    styles: mapStyles, // Apply custom styles
+                    disableDefaultUI: false,
+                    zoomControl: true,
+                    mapTypeControl: false,
+                    streetViewControl: true,
+                    fullscreenControl: true,
+                });
+
+                 const marker = new google.maps.Marker({
+                     position: companyLocation,
+                     map: map,
+                     title: "My Bazaar Application Office",
+                     // icon: 'path/to/custom_icon.png', // Optional custom icon
+                     animation: google.maps.Animation.DROP
+                 });
+
+                 // Enhanced InfoWindow Content & Style
+                 const infowindowContent = `
+                     <div style="font-family: 'Poppins', sans-serif; padding: 5px; max-width: 260px;">
+                         <h3 style="margin: 0 0 8px 0; color: var(--primary); font-size: 1.1rem; font-weight: 600;">Kiraya Application</h3>
+                         <p style="margin: 0 0 4px 0; color: var(--text); font-size: 0.85rem;">Reti Mandi, Near Rajendra Nagar</p>
+                         <p style="margin: 0 0 10px 0; color: var(--text); font-size: 0.85rem;">Indore, MP 452012</p>
+                         <a href="https://www.google.com/maps/dir/?api=1&destination=${companyLocation.lat},${companyLocation.lng}"
+                            target="_blank" rel="noopener noreferrer"
+                            style="color: var(--primary); background-color: var(--secondary); padding: 6px 10px; border-radius: 6px; text-decoration: none; font-weight: 500; display: inline-block; font-size: 0.8rem; transition: background-color 0.3s ease;">
+                            <i class="fas fa-directions"></i> Get Directions
+                         </a>
+                     </div>
+                 `;
+
+                 const infowindow = new google.maps.InfoWindow({
+                     content: infowindowContent,
+                     maxWidth: 300
+                 });
+
+                 marker.addListener("click", () => {
+                     infowindow.open({ anchor: marker, map, shouldFocus: false });
+                 });
+
+             } catch (error) {
+                 console.error("Error initializing Google Map:", error);
+                 const mapElement = document.getElementById("map");
+                 if (mapElement) {
+                    mapElement.innerHTML = '<p style="text-align: center; padding: 2rem; color: var(--danger);">Could not load map. Please check the API key and internet connection.</p>';
+                 }
+            }
+        }
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProducts();
+            // Note: initMap is called by the Google Maps API script callback=initMap parameter
+        });
+
+    </script>
+
+    <!-- Google Maps API Script -->
+    <!-- IMPORTANT: Replace YOUR_API_KEY with your actual Google Maps API Key -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt10PCighv1qPpfyZuc7rkyOsEvirrsy4&callback=initMap&libraries=marker&v=beta">
+    </script>
+
+</body>
+</html>

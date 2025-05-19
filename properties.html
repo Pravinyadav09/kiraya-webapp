@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bazaar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007bff; /* Modern Blue Primary */
+            --secondary: #6c757d; /* Secondary Gray */
+            --accent: #ffc107; /* Accent Yellow */
+            --text: #343a40; /* Dark Gray Text */
+            --light-bg: #f8f9fa; /* Light Background */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg); /* Light Background */
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary); /* Solid Primary Color */
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 25px 25px; /* Rounded bottom corners */
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .tagline {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Features Grid */
+        .features {
+            max-width: 1200px;
+            margin: -80px auto 4rem; /* Adjusted margin-top */
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted minmax */
+            gap: 2.5rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e0e0e0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 1rem;
+            background: var(--light-bg); /* Light Background */
+            color: var(--text);
+        }
+
+        .service-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-number {
+            font-size: 2.2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 1.2rem;
+            font-weight: 700;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1rem;
+            background: white;
+        }
+
+        .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-card {
+            padding: 2.5rem;
+            border-radius: 15px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+             box-shadow: var(--shadow);
+        }
+
+        .contact-card::after {
+             content: '';
+             position: absolute;
+             bottom: -30px; right: -30px;
+             width: 100px; height: 100px;
+             background: rgba(255, 255, 255, 0.15);
+             border-radius: 50%;
+             z-index: 0;
+         }
+
+        .contact-card i {
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            z-index: 1;
+            position: relative;
+        }
+
+         .contact-card h3 {
+             font-size: 1.5rem;
+             font-weight: 600;
+             margin-bottom: 1rem;
+             z-index: 1;
+             position: relative;
+         }
+
+        .contact-card p {
+             font-size: 1.1rem;
+             z-index: 1;
+             position: relative;
+             line-height: 1.6;
+             opacity: 0.9;
+         }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .logo {
+                font-size: 2.2rem;
+            }
+
+            .features {
+                margin-top: -60px;
+                gap: 2rem;
+            }
+
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+
+            .service-grid, .contact-grid {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                 padding: 2.5rem 1rem;
+                 border-radius: 0; /* Square corners on small screens */
+             }
+             .logo { font-size: 2rem; }
+             .features { margin-top: -40px; }
+             .feature-card { padding: 1.8rem; }
+             .service-grid, .contact-grid { gap: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="logo">MyBazaarAPPLICATION</div>
+        <p class="tagline">India's Most Trusted sell Ecosystem</p>
+    </section>
+
+    <!-- Features Grid -->
+    <div class="features">
+        <div class="feature-card">
+            <i class="feature-icon fas fa-shield-alt"></i>
+            <h3>Secure Transactions</h3>
+            <p>End-to-end encryption and secure payment system</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="feature-icon fas fa-rupee-sign"></i>
+            <h3>Affordable Rates</h3>
+            <p>Flexible rental plans - daily/weekly/monthly</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="feature-icon fas fa-headset"></i>
+            <h3>24×7 Support</h3>
+            <p>Dedicated customer support team</p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-number">1</div>
+                <h3>Wide Range</h3>
+                <p>From gadgets to high-end equipment</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">2</div>
+                <h3>Flexible Rentals</h3>
+                <p>Rent by hour/day/month</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-number">3</div>
+                <h3>Easy Process</h3>
+                <p>Complete event kit with one click</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt contact-card i"></i>
+                <h3>ADDRESS</h3>
+                <p>VIJAY NAGAR</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-phone contact-card i"></i>
+                <h3>CALL</h3>
+                <p>+91 9981213586</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-envelope contact-card i"></i>
+                <h3>EMAIL</h3>
+                <p>support@MyBazaar.com</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

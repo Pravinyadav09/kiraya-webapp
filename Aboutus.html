@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Standardized Variables (from index11.html) --- */
+        :root {
+            --primary: #007bff;
+            --primary-darker: #0056b3;
+            --secondary: #6c757d;
+            --secondary-hover: #5a6268;
+            --accent: #ffc107; /* Standard Yellowish accent */
+            --accent-hover: #f5c120;
+            --dark: #343a40;
+            --light: #f8f9fa; /* Slightly off-white */
+            --text: #495057; /* Dark Gray for text */
+            --text-light: #6c757d; /* Lighter gray */
+            --border-color: #dee2e6; /* Light border color */
+            --white: #ffffff;
+            --danger: #dc3545;
+            --danger-hover: #c82333;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Reset & Body */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light); /* Use standard light background */
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 2rem 1rem; /* Padding around the container */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /* Removed flex centering for standard page layout */
+        }
+
+        /* --- Main Container --- */
+        .about-container {
+            max-width: 900px; /* Adjusted max-width */
+            margin: 2rem auto; /* Center container */
+            background: var(--white); /* Standard white background */
+            padding: 3rem; /* Generous padding */
+            border-radius: 15px; /* Consistent radius */
+            box-shadow: var(--shadow-md); /* Use standard shadow */
+            border: 1px solid var(--border-color); /* Standard border */
+            /* Removed custom animation */
+        }
+
+        /* --- Header --- */
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem; /* Increased space below header */
+        }
+
+        /* Use standard gradient heading */
+        .section-heading {
+            font-size: 2.5rem; /* Consistent size */
+            font-weight: 700;
+            margin-bottom: 0.8rem; /* Space below title */
+            line-height: 1.3;
+             /* Gradient effect */
+             background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Removed custom animation */
+        }
+
+        /* Subtitle Paragraph Style */
+        .about-header p {
+            font-size: 1.1rem; /* Consistent size */
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto; /* Center */
+        }
+
+        /* --- Section Card Styling (Replaces old .section-card) --- */
+        .content-section { /* Renamed for clarity */
+            background: var(--white); /* White background, or slightly off-white for contrast */
+            /* background: var(--light); */ /* Optional: slightly different bg */
+            padding: 2rem; /* Standard padding */
+            border-radius: 12px; /* Slightly softer radius */
+            margin: 1.5rem 0; /* Space between sections */
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm); /* Lighter shadow for inner cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Standard transition */
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px); /* Subtle lift */
+            box-shadow: var(--shadow); /* Standard shadow on hover */
+        }
+
+        /* Section Title within the card */
+        .section-title {
+            color: var(--primary);
+            font-size: 1.4rem; /* Slightly larger title */
+            font-weight: 600;
+            margin-bottom: 1.5rem; /* More space below title */
+            display: flex;
+            align-items: center;
+            gap: 0.8rem; /* Space between icon and text */
+        }
+
+        .section-title i {
+            color: var(--secondary); /* Icon color */
+            font-size: 1.5rem; /* Icon size */
+            line-height: 1; /* Ensure icon aligns well */
+        }
+
+        /* Styling for Paragraphs within sections */
+         .content-section > p { /* Target direct paragraph children */
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+         }
+         .content-section > p:last-of-type {
+             margin-bottom: 0; /* Remove margin if it's the last element */
+         }
+
+        /* Feature List Styling */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0; /* Adjusted margin */
+        }
+
+        .feature-item {
+            padding: 0.5rem 0; /* Vertical padding only */
+            margin-bottom: 0.6rem; /* Space between items */
+            display: flex;
+            align-items: center;
+            gap: 0.8rem; /* Consistent gap */
+            /* Removed background, border, individual hover effects */
+            font-size: 0.95rem;
+            color: var(--text); /* Standard text color */
+        }
+         .feature-item:last-child {
+             margin-bottom: 0;
+         }
+
+        /* Checkmark icon for list items */
+        .feature-item::before {
+            content: '\f00c'; /* FontAwesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--secondary); /* Use secondary color */
+            font-size: 0.9rem; /* Adjust icon size */
+            min-width: 20px; /* Ensure alignment */
+            text-align: center;
+        }
+        /* Remove the explicit icon from HTML if using ::before */
+        .feature-item i.fas {
+            display: none; /* Hide the HTML icon if ::before is used */
+        }
+
+
+        /* --- Standardized Button Style --- */
+         /* Wrapper for centering the button */
+         .cta-wrapper {
+             text-align: center;
+             margin-top: 2.5rem; /* Space above button */
+         }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 2rem; /* Consistent padding */
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem; /* Consistent CTA size */
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        /* Primary Button Style */
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+         .btn-primary:hover {
+            background-color: var(--primary-darker);
+            border-color: var(--primary-darker);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        .btn i {
+            font-size: 1rem; /* Adjust icon size if needed */
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .about-container {
+                padding: 2rem; /* Adjust padding */
+                margin: 1rem auto;
+            }
+            .section-heading { font-size: 2rem; }
+            .about-header p { font-size: 1rem; }
+
+            .content-section { padding: 1.5rem; } /* Adjust card padding */
+            .section-title { font-size: 1.2rem; margin-bottom: 1rem; }
+            .feature-item, .content-section > p { font-size: 0.9rem; }
+
+            .btn { font-size: 1rem; padding: 0.7rem 1.5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .about-container { padding: 1.5rem; }
+            .section-heading { font-size: 1.8rem; }
+            .content-section { padding: 1.2rem; }
+            .section-title { font-size: 1.1rem; gap: 0.5rem; }
+            .section-title i { font-size: 1.3rem; }
+            .btn { width: 100%; justify-content: center; } /* Full width button */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <!-- Header -->
+        <div class="about-header">
+            <h1 class="section-heading">About Us</h1>
+            <p>India's Most Innovative Sales Platform</p>
+        </div>
+
+        <!-- Core Values Section -->
+        <div class="content-section">
+            <div class="section-title">
+                <i class="fas fa-gem"></i>
+                <h2>Our Core Values</h2>
+            </div>
+            <p>At PickUp, we are guided by a set of core values that define our culture and commitment:</p>
+            <ul class="feature-list">
+                <li class="feature-item">
+                    Innovation: We constantly push boundaries to redefine industry standards.
+                </li>
+                <li class="feature-item">
+                    Transparency: We operate with honesty and clear communication.
+                </li>
+                <li class="feature-item">
+                    Customer Focus: We prioritize exceptional experiences for every user.
+                <li class="feature-item">
+                     Community: We foster a supportive and inclusive environment.
+                </li>
+                <li class="feature-item">
+                    Sustainability: We promote responsible renting to minimize environmental impact.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mission Statement Section -->
+        <div class="content-section">
+            <div class="section-title">
+                <i class="fas fa-bullseye"></i>
+                <h2>Our Mission</h2>
+            </div>
+            <p>To empower individuals and businesses across India by providing a seamless, secure, and sustainable rental and sales ecosystem, making access affordable and enriching lives through shared resources.</p>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="content-section">
+            <div class="section-title">
+                <i class="fas fa-key"></i>
+                <h2>Why Choose Us?</h2>
+            </div>
+             <p>PickUp stands out as the ideal solution for renting or selling due to several unique value propositions:</p>
+            <ul class="feature-list">
+                <li class="feature-item">
+                  
+                    <b>Unmatched Transparency:</b> No hidden fees, completely clear pricing structure.
+                </li>
+                <li class="feature-item">
+                   
+                    <b>Cutting-Edge Security:</b> Advanced encryption and user verification protocols.
+                </li>
+                <li class="feature-item">
+                    
+                    <b>Extensive Selection:</b> Vast range of available items and properties.
+                </li>
+                <li class="feature-item">
+                   
+                    <b>Responsive Support:</b> Dedicated customer assistance available 24/7.
+                </li>
+                 <li class="feature-item">
+                    
+                    <b>Sustainable Approach:</b> Promote responsible rental to reduce waste.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Call to Action Button -->
+        <div class="cta-wrapper">
+             <button class="btn btn-primary" onclick="window.location.href='index11.html'">
+                <i class="fas fa-arrow-right"></i> Explore MyBazaar Now
+            </button>
+        </div>
+
+    </div>
+</body>
+</html>

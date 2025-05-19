@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Standardized Variables (from index11.html) --- */
+        :root {
+            --primary: #007bff;
+            --primary-darker: #0056b3;
+            --secondary: #6c757d;
+            --secondary-hover: #5a6268;
+            --accent: #ffc107; /* Standard Yellowish accent */
+            --accent-hover: #f5c120;
+            --dark: #343a40;
+            --light: #f8f9fa; /* Slightly off-white */
+            --text: #495057; /* Dark Gray for text */
+            --text-light: #6c757d; /* Lighter gray */
+            --border-color: #dee2e6; /* Light border color */
+            --white: #ffffff;
+            --danger: #dc3545;
+            --danger-hover: #c82333;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Reset & Body */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light); /* Use standard light background */
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 2rem 1rem; /* Add padding around the container */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Container --- */
+        .about-container {
+            max-width: 1100px; /* Consistent max-width */
+            margin: 2rem auto; /* Center container */
+            background: var(--white); /* Standard white background */
+            border-radius: 15px; /* Consistent radius */
+            box-shadow: var(--shadow-md); /* Use standard shadow */
+            border: 1px solid var(--border-color); /* Standard border */
+            overflow: hidden; /* Keep overflow hidden */
+        }
+
+        /* --- Header --- */
+        .about-header {
+            padding: 4rem 1rem 2rem; /* Standard padding */
+            text-align: center;
+            border-bottom: 1px solid var(--border-color); /* Add separator */
+            margin-bottom: 2rem; /* Space below header */
+        }
+
+        /* --- Standardized Heading (Gradient Variant) --- */
+        .section-heading {
+            font-size: 2.5rem; /* Consistent size */
+            font-weight: 700; /* Bold */
+            margin-bottom: 1rem; /* Space below title */
+            position: relative;
+            line-height: 1.3;
+             /* Gradient effect */
+             background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Optional: Add underline if needed, but gradient might be enough
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 50%;
+            transform: translateX(-50%);
+            width: 80px; height: 3px;
+            background-color: var(--secondary); border-radius: 2px;
+        } */
+
+        /* Subtitle Paragraph Style */
+        .about-header p {
+            font-size: 1.1rem; /* Consistent size */
+            color: var(--text-light);
+            max-width: 650px; /* Limit width */
+            margin: 0 auto; /* Center */
+        }
+
+        /* --- Feature Grid --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+            gap: 2rem; /* Standard gap */
+            padding: 2rem; /* Padding around the grid */
+        }
+
+        /* --- Standardized Card Style --- */
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem; /* Standard padding */
+            border-radius: 15px; /* Standard radius */
+            border: 1px solid var(--border-color); /* Standard border */
+            box-shadow: var(--shadow); /* Standard shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Standard transition */
+            /* Removed rgba background and ::before shiny effect */
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px); /* Standard hover lift */
+            box-shadow: var(--shadow-md); /* Standard hover shadow */
+        }
+
+        /* Card Icon */
+        .card-icon {
+            font-size: 2.8rem; /* Consistent icon size */
+            color: var(--secondary); /* Use secondary color */
+            margin-bottom: 1.5rem;
+            display: inline-block; /* Ensure margin works */
+        }
+
+        /* Card Heading */
+        .feature-card h2 {
+            font-size: 1.3rem; /* Consistent heading size */
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem; /* Increased space */
+        }
+
+        /* Card Paragraph */
+        .feature-card p {
+            font-size: 0.95rem; /* Consistent paragraph size */
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem; /* Default margin */
+        }
+         /* Remove margin from last p if followed by specific elements */
+         .feature-card p:last-of-type {
+             margin-bottom: 0;
+         }
+         .feature-card *:last-child {
+            margin-bottom: 0; /* Remove margin from very last element */
+         }
+
+
+        /* Styling for List */
+        .feature-card ul {
+            list-style: none; /* Remove default bullets */
+            padding: 0;
+            margin-top: 1rem; /* Space above list */
+        }
+
+        .feature-card li {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem; /* Space between items */
+            display: flex; /* Align icon and text */
+            align-items: center;
+            gap: 0.6rem; /* Space between icon and text */
+        }
+        /* Add custom list icon */
+        .feature-card li::before {
+            content: '\f00c'; /* FontAwesome check icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--secondary); /* Use secondary color */
+            font-size: 0.8rem; /* Adjust icon size */
+        }
+
+        /* Styling for Tech Stack */
+        .tech-stack {
+            display: flex;
+            gap: 1.5rem; /* Space between icons */
+            margin-top: 1.5rem; /* Space above tech stack */
+            font-size: 1.8rem; /* Icon size */
+            color: var(--text-light); /* Icon color */
+            justify-content: center; /* Center icons */
+            flex-wrap: wrap; /* Allow wrapping */
+        }
+         .tech-stack i:hover {
+             color: var(--secondary); /* Highlight on hover */
+             transform: scale(1.1);
+             transition: color 0.3s, transform 0.3s;
+         }
+
+        /* Styling for Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive stats */
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center; /* Center stat items */
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem; /* Large number */
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+            margin-bottom: 0.2rem; /* Less space below number */
+        }
+
+        .stat-item p {
+            font-size: 0.85rem; /* Smaller label */
+            color: var(--text-light);
+            margin-bottom: 0; /* Remove default paragraph margin */
+        }
+
+        /* --- CTA Section --- */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 1rem; /* Standard padding */
+            background-color: var(--light); /* Light background for CTA section */
+            border-top: 1px solid var(--border-color); /* Separator line */
+        }
+
+        /* --- Standardized Button Style --- */
+        .btn {
+            display: inline-flex; /* Use inline-flex for alignment */
+            align-items: center;
+            gap: 0.8rem; /* Space between icon and text */
+            padding: 0.8rem 2rem; /* Adjusted padding for larger button */
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem; /* Larger font size for CTA */
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        /* Primary Button Style (from index11.html) */
+        .btn-primary {
+            background: var(--primary); /* Use primary for background */
+            border-color: var(--primary);
+            color: var(--white);
+        }
+         .btn-primary:hover {
+            background-color: var(--primary-darker); /* Darker primary on hover */
+            border-color: var(--primary-darker);
+            transform: translateY(-3px); /* Standard lift */
+            box-shadow: var(--shadow); /* Standard shadow */
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            body { padding: 1rem; } /* Reduce body padding */
+             .about-container { margin: 1rem auto; border-radius: 15px; } /* Adjust margin/radius */
+            .about-header { padding: 2.5rem 1rem 1.5rem; }
+            .section-heading { font-size: 2rem; } /* Smaller heading */
+            .about-header p { font-size: 1rem; }
+
+            .feature-grid { padding: 1.5rem; gap: 1.5rem; }
+            .feature-card { padding: 1.5rem; border-radius: 12px; } /* Adjust card padding/radius */
+            .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+            .feature-card h2 { font-size: 1.1rem; }
+            .feature-card p, .feature-card li { font-size: 0.9rem; }
+            .tech-stack { font-size: 1.5rem; gap: 1rem; }
+            .stats { gap: 1rem; }
+            .stat-item h3 { font-size: 1.5rem; }
+
+            .cta-section { padding: 2rem 1rem; }
+            .btn { font-size: 1rem; padding: 0.7rem 1.5rem; } /* Adjust button size */
+        }
+
+        @media (max-width: 480px) {
+            .section-heading { font-size: 1.8rem; }
+            .feature-grid { grid-template-columns: 1fr; /* Stack cards */ padding: 1rem; }
+            .feature-card { padding: 1.2rem; }
+            .stats { grid-template-columns: 1fr; gap: 0.5rem; } /* Stack stats tighter */
+            .btn { width: 100%; justify-content: center; } /* Full width button */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <!-- Header Section -->
+        <div class="about-header">
+            <h1 class="section-heading">About MyBazzar</h1> <!-- Using standardized heading -->
+            <p>India's Most Innovative sell Platform</p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="feature-grid">
+            <!-- Technology Card -->
+            <div class="feature-card">
+                <i class="card-icon fas fa-atom"></i>
+                <h2>Our Technology</h2>
+                <p>Powered by AI and Blockchain for a secure, efficient, and transparent selling experience.</p>
+                <div class="tech-stack">
+                    <i class="fab fa-react" title="React"></i>
+                    <i class="fab fa-node-js" title="Node.js"></i> <!-- More specific icon -->
+                    <i class="fas fa-database" title="Database"></i>
+                    <i class="fas fa-brain" title="Artificial Intelligence"></i> <!-- AI icon -->
+                    <i class="fab fa-bitcoin" title="Blockchain"></i> <!-- Blockchain icon -->
+                </div>
+            </div>
+
+            <!-- Security Card -->
+            <div class="feature-card">
+                <i class="card-icon fas fa-shield-alt"></i>
+                <h2>Advanced Security</h2>
+                <!-- Using a list for better readability -->
+                <ul>
+                    <li>End-to-end data encryption</li>
+                    <li>Secure biometric verification options</li>
+                    <li>Real-time, AI-powered fraud monitoring</li>
+                    <li>Verified user profiles & ratings</li>
+                </ul>
+            </div>
+
+            <!-- Growth Card -->
+            <div class="feature-card">
+                <i class="card-icon fas fa-chart-line"></i>
+                <h2>Our Growth Journey</h2>
+                <p>Rapidly expanding to connect more people and possibilities across India.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3>50K+</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p>Cities Presence</p>
+                    </div>
+                     <div class="stat-item">
+                        <h3>1M+</h3>
+                        <p>Listings Rented</p> <!-- Added another stat example -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="cta-section">
+            <button class="btn btn-primary" onclick="window.location.href='index11.html'"> <!-- Use standard button classes -->
+                <i class="fas fa-rocket"></i>
+                Explore MyBazzar Now
+            </button>
+        </div>
+    </div>
+</body>
+</html>

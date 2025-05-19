@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Define some basic colors (can be adjusted) */
+        :root {
+            --primary-color: #007bff; /* Modern Primary Blue */
+            --primary-darker: #0056b3;
+            --secondary-color: #6c757d; /* Clean Secondary Gray */
+            --background-light: #f8f9fa; /* Very Light Gray */
+            --text-dark: #343a40;    /* Dark Gray */
+            --text-medium: #6c757d;   /* Medium Gray */
+            --white: #ffffff;
+            --border-light: #dee2e6; /* Light border color */
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Slightly nicer sans-serif */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 750px; /* Slightly wider */
+            margin: 60px auto; /* More space top/bottom */
+            padding: 45px;     /* More padding */
+            background-color: var(--white);
+            border-radius: 15px; /* More rounded corners */
+            box-shadow: var(--shadow); /* Soft shadow */
+            border: 1px solid var(--border-light); /* Subtle border */
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 12px; /* Reduced space */
+            font-size: 2.4em; /* Slightly larger */
+            font-weight: 700;
+        }
+
+        .intro-text {
+            text-align: center;
+            color: var(--text-medium);
+            margin-bottom: 45px; /* More space below intro */
+            font-size: 1.1em;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start; /* Align items to the top for multi-line text */
+            margin-bottom: 28px; /* Adjusted spacing */
+            padding: 22px; /* More padding inside item */
+            border: 1px solid var(--border-light);
+            border-radius: 10px; /* Rounded corners for items */
+            background-color: var(--white); /* Solid white */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .contact-info li:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-info i {
+            font-size: 1.7em;
+            color: var(--primary-color); /* Icon color */
+             /* Background circle for icon */
+            background-color: rgba(0, 123, 255, 0.12); /* Light primary color background */
+            min-width: 55px; /* Circle size */
+            height: 55px;
+            border-radius: 50%;
+            display: inline-flex; /* Center icon in circle */
+            justify-content: center;
+            align-items: center;
+            margin-right: 22px; /* More space next to icon */
+             margin-top: 3px; /* Align icon better with first line of text */
+        }
+
+        .contact-info .details { /* Wrapper for text details */
+            flex-grow: 1; /* Take remaining space */
+        }
+
+        .contact-info span.label { /* Changed span to class for clarity */
+            font-weight: 600; /* Bolder label */
+            display: block;
+            margin-bottom: 6px; /* Space below label */
+            color: var(--text-dark); /* Darker label */
+            font-size: 1.15em;
+        }
+
+        .contact-info p.value { /* Added class for value */
+             margin: 0; /* Remove default paragraph margin */
+             color: var(--text-medium); /* Medium color for value */
+             font-size: 1.05em;
+        }
+
+        .contact-info a {
+            color: var(--primary-color); /* Link color */
+            text-decoration: none;
+            font-weight: 500; /* Slightly bolder links */
+             transition: color 0.2s ease, text-decoration 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: var(--primary-darker); /* Darker shade on hover */
+        }
+
+         /* Responsive Adjustments */
+         @media (max-width: 768px) {
+            .container {
+                margin: 40px 20px; /* Adjust margin */
+                padding: 35px;
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+         }
+
+         @media (max-width: 480px) {
+            .container {
+                margin: 30px 15px;
+                padding: 30px;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .intro-text {
+                font-size: 1.05em;
+                margin-bottom: 35px;
+            }
+            .contact-info li {
+                padding: 18px;
+                flex-direction: column; /* Stack icon and text */
+                align-items: center; /* Center items when stacked */
+                 text-align: center; /* Center text when stacked */
+                margin-bottom: 25px;
+            }
+            .contact-info i {
+                 margin-right: 0; /* Remove right margin when stacked */
+                 margin-bottom: 12px; /* Add space below icon when stacked */
+                 font-size: 1.6em;
+                 min-width: 50px;
+                 height: 50px;
+            }
+             .contact-info span.label {
+                 font-size: 1.1em;
+             }
+             .contact-info p.value {
+                 font-size: 1em;
+             }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p class="intro-text">We're here to help!  Have questions, feedback, or need assistance? Contact us using the information below.</p>
+
+        <div class="contact-info">
+            <ul>
+                <li>
+                    <i class="fas fa-phone-volume"></i>
+                    <div class="details">
+                        <span class="label">Phone</span>
+                        <p class="value"><a href="tel:+919981213586">+919981213586</a></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-envelope-open-text"></i>
+                    <div class="details">
+                        <span class="label">Email</span>
+                        <p class="value"><a href="mailto:janviy296@gmail.com">janviy296@gmail.com</a></p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="details">
+                        <span class="label">Address</span>
+                        <p class="value">Vijay Nagar,<br>Indore, Madhya Pradesh 452012</p> <!-- Added line break example -->
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-clock"></i>
+                    <div class="details">
+                        <span class="label">Business Hours</span>
+                        <p class="value">Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
